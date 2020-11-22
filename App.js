@@ -14,7 +14,7 @@ const App: () => React$Node = () => {
     <>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="ParMasMas" component={Home} />
           <Stack.Screen name="TableView" component={TableView} />
           <Stack.Screen name="NewProgram" component={NewProgram} />
           <Stack.Screen name="Console" component={Console} />
