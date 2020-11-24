@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Modal} from 'react-native';
+import {Text, View, StyleSheet, Modal, TouchableOpacity} from 'react-native';
 import {Input} from 'react-native-elements';
 import {Button} from 'react-native-elements';
 import axios from 'axios';
@@ -7,6 +7,16 @@ import axios from 'axios';
 const styles = StyleSheet.create({
   center: {
     alignItems: 'center',
+  },
+  button: {
+    width: '65%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: '10%',
+    marginTop: '5%',
+    backgroundColor: '#0a4daa',
+    borderRadius: 100,
+    height: 40,
   },
 });
 
@@ -33,21 +43,64 @@ const NewProgram = ({props, navigation}) => {
   return (
     <View
       style={{
-        margin: '10%',
+        height: '100%',
         display: 'flex',
         alignItems: 'center',
         alignContent: 'center',
+        backgroundColor: 'white',
       }}>
-      <Text>Nombre del programa</Text>
-      <Input
-        placeholder="hello-world"
-        onChangeText={(value) => setProgramName(value)}
-      />
-      <Button
-        title="Guardar"
-        type="outline"
-        onPress={() => writeToFile(name)}></Button>
-      <Text>{name}</Text>
+      <View style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: 'Avenir Next',
+            margin: '11%',
+            fontWeight: '500',
+          }}>
+          Nombre del programa
+        </Text>
+        <View
+          style={{
+            width: '80%',
+            display: 'flex',
+            alignContent: 'center',
+            margin: '10%',
+          }}>
+          <View>
+            <Input
+              placeholder="hello-world"
+              style={{fontFamily: 'Avenir Next'}}
+              onChangeText={(value) => setProgramName(value)}
+            />
+          </View>
+        </View>
+        <TouchableOpacity
+          backgroundColor="#38B6FF"
+          style={styles.button}
+          onPress={() => {
+            writeToFile(name);
+          }}>
+          <View
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              alignContent: 'center',
+              alignSelf: 'center',
+              flex: 1,
+            }}>
+            <Text
+              style={{
+                fontFamily: 'Avenir Next',
+                padding: '3%',
+                fontWeight: 'bold',
+                fontSize: 18,
+                color: 'white',
+              }}>
+              Guardar{' '}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
